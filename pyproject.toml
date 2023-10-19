@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "sampyling"
+version = "0.1.0"
+description = "samPYling, auxilia o desenvolvimento de amostras probabilísticas e estimações de uma população baseado em diversas técnicas de amostragem."
+license = "ALF"
+authors = ["Richard Wallan <3am.richardwallan@gmail.com>", "Ricardo Antunes <rictunes.py@gmail.com>"]
+readme = "README.md"
+packages = [{include = "sampyling"}]
+classifiers = [
+    "Topic :: Education",
+    "Natural Language :: Portuguese (Brazilian)",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: Academic Free License (AFL)"
+]
+
+[tool.poetry.urls]
+"Documentação" = ""
+"Código" = "https://github.com/samPYling/samPYling.git"
+"Bug Tracker" = "https://github.com/samPYling/samPYling/issues"
+
+[tool.poetry.dependencies]
+python = "3.11.*"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+black = "^23.10.0"
+isort = "^5.12.0"
+ruff = "^0.1.0"
+taskipy = "^1.12.0"
+ipykernel = "^6.25.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 79
+exclude = [".venv"]
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+line_length = 79
+profile = "black"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+
+[tool.taskipy.tasks]
+lint = "ruff . && black --check . --diff"
+format = "black . && isort ."
+pre_test = "task lint"
+test = "pytest -s -x --cov=sampyling -vv"
+post_test = "coverage html"
