@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sampyling"
-version = "0.1.0"
+version = "0.0.1"
 description = "samPYling, auxilia o desenvolvimento de amostras probabilísticas e estimações de uma população baseado em diversas técnicas de amostragem."
 license = "ALF"
 authors = ["Richard Wallan <3am.richardwallan@gmail.com>", "Ricardo Antunes <rictunes.py@gmail.com>"]
@@ -14,7 +14,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-"Documentação" = ""
+"Document" = "https://github.com/samPYling/samPYling/blob/main/README.md"
 "Código" = "https://github.com/samPYling/samPYling.git"
 "Bug Tracker" = "https://github.com/samPYling/samPYling/issues"
 
