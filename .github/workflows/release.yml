@@ -35,7 +35,7 @@ jobs:
           if-no-files-found: error
 
   pypi-release:
-    name: Publish on PyPI
+    name: Publish on PyPI Test
     needs: build-package
     runs-on: ubuntu-latest
     environment:
