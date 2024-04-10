@@ -34,7 +34,7 @@ jobs:
           path: dist
           if-no-files-found: error
 
-  pypi-release:
+  pypi-test-release:
     name: Publish on PyPI Test
     needs: build-package
     runs-on: ubuntu-latest
@@ -55,3 +55,24 @@ jobs:
           repository-url: https://test.pypi.org/legacy/
           username: __token__
           password: ${{ secrets.TEST_PYPI_TOKEN }}
+
+  pypi-release:
+    name: Publish on PyPI
+    needs: build-package
+    runs-on: ubuntu-latest
+    environment:
+      name: release
+    permissions:
+      id-token: write
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: package
+          path: dist
+
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          username: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
