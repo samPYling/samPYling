@@ -47,7 +47,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          name: packages
+          name: package
           path: dist
 
       - name: Publish package
