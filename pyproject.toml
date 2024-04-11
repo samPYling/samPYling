@@ -50,6 +50,7 @@ profile = "black"
 
 [tool.pytest.ini_options]
 pythonpath = "."
+addopts = "--doctest-modules"
 
 [tool.taskipy.tasks]
 lint = "ruff . && black --check . --diff"
